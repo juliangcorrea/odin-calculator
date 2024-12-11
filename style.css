@@ -1,0 +1,14 @@
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Optional: smooth scrolling */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Optional: set a default font */
+}
