@@ -93,10 +93,15 @@ floatBtn.addEventListener('click', ()=>{
     let tempCheck = screenNum.textContent[0]
     if(!isNaN(tempCheck)){
         if(operator == ''){
-            number1 += '.'
+            if(!number1.toString().includes('.')){
+                number1 += '.'
+                screenNum.textContent += '.'
+            }
         } else {
-            number2 += '.'
+            if(!number2.toString().includes('.')){
+                number2 += '.'
+                screenNum.textContent += '.'
+            }
         }
-        screenNum.textContent += '.'
     }
 })
