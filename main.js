@@ -33,7 +33,6 @@ function operate(number1, number2, operator){
 }
 
 let number1 = number2 = operator = tempRestult = btnNum = ''
-let state = false
 
 numbersBtns.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -43,11 +42,10 @@ numbersBtns.forEach(button => {
             } else {
                 number2 += e.target.textContent
             }
-            if(screenNum.textContent != 0 && state == false){
+            if(screenNum.textContent != 0){
                 screenNum.textContent += e.target.textContent
             } else {
                 screenNum.textContent = e.target.textContent
-                state = false
             }
         }
     });
@@ -78,15 +76,16 @@ clearBtn.addEventListener('click', ()=>{
 })
 
 equalBtn.addEventListener('click', ()=>{
+    console.log(number1, number2, operator)
     if(number1 != '' && operator != '' && number2 != ''){
         tempRestult = operate(number1, number2, operator)
         if(tempRestult.toString().includes('.')){
             tempRestult = tempRestult.toFixed(2)
         }
         screenNum.textContent = tempRestult
+        number1 = tempRestult.toString()
+        number2 = operator = tempRestult = btnNum = ''
     }
-    number1 = number2 = operator = tempRestult = btnNum = ''
-    state = true
 })
 
 floatBtn.addEventListener('click', ()=>{
